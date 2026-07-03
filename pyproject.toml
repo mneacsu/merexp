@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "merexp"
+version = "0.1.0"
+description = "Python client for Merome Explorer API"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+
+dependencies = [
+    "requests",
+    "pandas",
+]
+
+[project.urls]
+Repository = "https://github.com/mneacsu/merexp"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["merexp*"]
