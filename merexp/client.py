@@ -89,7 +89,7 @@ class MeromeExplorerClient:
         records = pd.DataFrame.from_records(records)
 
         if set(indices) - set(records["api_id"]):
-            raise ValueError(f"Requested indices {set(indices) - set(records["api_id"])} not available")
+            raise ValueError(f"Requested indices {set(indices) - set(records['api_id'])} not available")
 
         subindex_count = sum(records["subindex_count"][records["api_id"].isin(indices)])
 
@@ -152,7 +152,7 @@ class MeromeExplorerClient:
         for d in datasets:
             if d["api_id"] == dataset:
                 return pd.DataFrame.from_records(d["indices"])    
-        raise ValueError(f"Dataset not found. Available datasets: {[d["api_id"] for d in datasets]}")
+        raise ValueError(f"Dataset not found. Available datasets: {[d['api_id'] for d in datasets]}")
 
     def get_index_metadata(self, api_id: str):
         """GET /api/v1/core/indices/{api_id}/metadata"""
@@ -191,7 +191,7 @@ class MeromeExplorerClient:
         records = pd.DataFrame.from_records(records)
 
         if set(indices) - set(records["api_id"]):
-            raise ValueError(f"Requested indices {set(indices) - set(records["api_id"])} not available")
+            raise ValueError(f"Requested indices {set(indices) - set(records['api_id'])} not available")
         
         indices = records["id"][records["api_id"].isin(indices)].tolist()
 
